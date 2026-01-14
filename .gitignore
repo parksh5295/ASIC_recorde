@@ -1,3 +1,20 @@
+# Ruff stuff:
+.ruff_cache/
+
+# PyPI configuration file
+.pypirc
+
+# Log files
+*.log
+
+# Server info
+server_info.txt
+
+# cache files
+*.pyc
+
+
+
 Dataset_Choose_Rule/Dataset_file_cut.py
 summarize_signatures.py
 Dataset_Choose_Rule/label_cluster_statistics.py
