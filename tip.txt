@@ -1,0 +1,85 @@
+1. Excute
+
+[완료] pipenv 가상환경 생성 및 의존성 점검 완료!
+👉 환경 진입: pyenv exec pipenv shell
+👉 환경에서 실행: pyenv exec pipenv run python your_script.py
+
+sh shell 종료 후 pyenv exec pipenv shell 실행 전
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+
+
+*** 라이브러리 버전 확인 ***
+https://pypi.org/pypi/{라이브러리명}/{version}/json
+
+
+
+
+2. 실행
+best_clustering_selector_parallel_previousPU.py: python best_clustering_selector_parallel_previousPU.py --file_type DARPA98 --max_score
+    --max_workers: max cpu cores
+Incremental_Signature_Validation_eex.py: python Incremental_Signature_Validation_eex.py --file_type MiraiBotnet --min_support 0.2 --min_confidence 0.8 --chunk_size 1000
+    --save_artifacts: save logs
+    --normal_data_batch_size 10000: normal data batch size
+    --signature_organize: use signature organization (prune+merge)
+    --prune_signatures: use signature prune; can include --prune_coverage_threshold(Critical threshold for erosion judgment)
+    --merge_signatures: use merge signatures; 
+    --negative_filtering: Track the "conditional probability" of normal data so that if P(rule|normal) exceeds a specific value, discard the candidate itself.
+Incremental_Signature_Validation_eex_turneval.py --file_type MiraiBotnet --min_support 0.2 --min_confidence 0.8 --chunk_size 1000 --signature_organize --negative_filtering
+    --mask_dominant_cols: Masks columns that are dominant (>0.99) in the support calculation; set to False to disable.
+    python Incremental_Signature_Validation_eex_turneval.py --file_type Kitsune --min_support 0.1 --min_confidence 0.1 --chunk_size 200000 --save_artifacts --signature_organize --negative_filtering
+    --cstemporal: cs temporal rows (4h)
+python Main_Association_Rule_ex_Batch.py --file_type netML --signature_ea 30 --signature_organize --negative_filtering
+    --normal_min_support 0.1 --min_support 0.1 --min_confidence 0.8
+    --precision_underlimit 0.9
+
+dtype zip probability:   python tools/dtype_precision_checker.py --csv ../Dataset_ex/sample.csv --runs N
+
+python Data_Labeling_Evaluate_Thresholds.py --file_type MiraiBotnet
+    --generate_cache  or  --evaluate_thresholds
+    --reset_cache, --reset_progress
+python Evaluate_Mapping_Conditions.py --file_type CICIoT2023 --min_support 0.1 --min_confidence 0.9
+    --negative_filtering --mask_dominant_cols
+
+python FPFN_control.py --run_turn_start 3 --run_turn_end 8 --FP_control --FP_turns 4,5 --FN_control --FN_turns 6
+
+python export_checkpoint_to_csv.py
+    --run_dir "../Dataset_ISV/CICIoT2023/rarm_s0.3_c0.8_cs500_l3_ns0.3_n40_dom0.99_dom(ms=0.3_mc=0.8_nms=0.3_lvl=3)_turneval"
+    --params_str "rarm_s0.3_c0.8_cs500_l3_ns0.3_n40_dom0.99_dom(ms=0.3_mc=0.8_nms=0.3_lvl=3)_turneval"
+    --file_type CICIoT2023
+    --with_attack_types
+
+
+
+
+3. TMUX
+tmux new -s mysession      # 새 세션 생성 (-s: 세션 이름 지정)
+tmux ls                    # 현재 실행 중인 세션 목록
+tmux attach -t mysession   # 기존 세션에 접속
+tmux detach                # 세션에서 빠져나오기 (Ctrl+b, d 와 동일)
+tmux kill-session -t mysession  # 특정 세션 종료
+tmux kill-server           # 모든 세션 종료
+ctrl+b -> [                # 스크롤
+
+'''
+server 53: tmux -S ~/.tmux/socket
+tmux -S ~/.tmux/socket new -s 0
+tmux -S ~/.tmux/socket ls
+tmux kill-session -t mysession
+'''
+
+server 53:
+ystemd-run --user --scope -p MemoryMax=infinity -p MemoryHigh=infinity -p MemorySwapMax=infinity tmux new -s 0
+
+
+
+
+4. Recommend_Clustering
+
+결과 저장:
+경로: ../Dataset/recommend/<데이터셋_종류>/
+파일명: <데이터셋_종류>_<파일_번호>_recommendation_3_report.csv
+
+

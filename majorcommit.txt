@@ -1,0 +1,114 @@
+1. best_clustering_selector_parallel.py
+- Commit 9ff3934: CH score implementation
+- Commit 46a7468: CH score implementation (6879080 files)
+- Commit 44cd930: f1-score Surrogate performing normally
+- Commit 5147d1b: The last functional version before the max score feature was added
+- Commit fc932d7: Refactoring is Done
+- Commit 10bb779: Last operation before PU-classifier modification
+- Commit 355aa1d: PowerCell achieves a high MiraiBotnet Jaccard score (0.94, CLARA)
+
+
+1-2. best_clustering_selector_parallel_previousPU.py
+- Commit b3ef924: Last normal operation before sampling implementation
+- Commit b35dfa0: Full operation; before Normal threshold 10 bins recording behavior
+- Commit ab066fc: Sampling operating successfully
+- Commit 7cefc11: GPU Server achieves upper 90.00 jaccard score
+- Commit 1924bac: normal operating: previous then Gmeans, Xmeans middel save
+- Commit 77f5574: normal operating before clustering chunking in DBSCAN, MShift
+- Commit f20179b: DBSCAN Re-Parallelization after DBSCAN sampling
+- Commit e8157fb: Last commit before full dataset-Virtual labeling
+- Commit 6561e03: Last commit before DARPA98 Xmeans k values change to 1-50
+- Commit d783f38: Last commit before DARPA98 Xmeans chunking
+- Commit 62fde31: Last commit before Adding DARPA98 MShift handler
+- Commit 1095b7d: Last commit before DARPA98 MShift Applying dynamic bandwidth
+- Commit 4dbd9e9: CPU Optimization
+- Commit 1f5ebbd: CNI change; known_normal_samples > dtype dedup show set
+
+
+
+1-3. best_clustering_selector_parallel_previousPU_refine.py
+- Commit e526f7c: Last commit before Chunk-level cluster column insertion
+
+
+
+
+2. Data_Labeling.py
+- Commit dd5a036: Data_Labeling CNI Threshold ~0.1 Normal operation
+
+
+
+3-1. Incremental_Signature_Validation_ex.py
+# ground truth label based signature generating
+- Commit 4e18ea6: Original (from ASIC)
+
+
+3-2. Incremental_Signature_Validation_eex.py
+# virtual label based signature generating
+- Commit 4e18ea6: Original (from ASIC)
+- Commit f54c361: Last operating before load checkpoints
+- Commit 2cb9005: Batch signatures normal operating
+- Commit 087503a: Batch normal data normal operating, before remove brokenpipe error message
+- Commit b8d0745: Remove brokenpipe error message
+- Commit b822bad: Signature Organization operating
+- Commit 35ac606: Signature Organization operating with semi-save
+
+
+4. Main_Association_Rule.py
+- Commit 4e18ea6: Original (from ASIC)
+
+
+
+4-1. Main_Association_Rule_Batch.py
+- Commit c681812: Made
+
+
+
+
+5. Main_Association_Rule_ex.py
+- Commit 4e18ea6: Original (from ASIC)
+- 
+
+
+
+5-1. Main_Association_Rule_ex_Batch.py
+- Commit c681812: Made
+- Commit 7e434c5: Use Signature Organization (Similar to ISV_eex)
+
+
+
+6. Association_module + Association algorithm
+- Commit 4242184: make FPC, before BIG CHANGE of adding dynamic min_support adjustment
+- Commit f7201fc: Mem(Dynamic min_support) + CPU(TID map -> Numpy+Pandas Vectorization) Optimization
+- Commit 0c1b3e8: Last Commit before Subsumption change
+- Commit 55a46fa: RuleSpooler use
+- Commit b2126a3: use gc, force flush(RuleSpooler), reduce Context switching, +Negative-aware filtering
+- Commit b9e24ee: _cap_set; A mitigation mechanism that uses only a subset of the TP set to reduce the erasure of overlapping signatures
+
+
+
+7. Evaluate_Mapping_Conditions
+- Commit e526f7c: dtype inferred in int 32
+- Commit 6e55dee: Remove; Regrouped(semi pruning), Inactive removel(Removing signatures that do not trigger alerts)
+
+
+8. FPFN_control.py
+- Commit cd98fa3: Move the FN hook position to after the main signature is generated
+
+
+9. ISV final_sig_count
+- Commit d3e12cf: Last modified before switching to full mapping mode
+- Commit d50fbc9: finalsig_wholemap.py << use map_intervals_to_groups
+- 
+
+
+
+### ======================================================================== ###
+hk_rev
+
+
+
+1. Incremental_Signature_Validation_eex
+- Commit e33db9a: Mem, Cpu Optimization
+
+
+
